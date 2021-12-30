@@ -1,0 +1,17 @@
+.ember-content-editable:empty:not(:focus):before,
+.ember-content-editable:focus:empty:before {
+  content: attr(placeholder);
+}
+
+.ember-content-editable {
+  cursor: text;
+  -webkit-user-modify: read-write-plaintext-only;
+}
+
+.ember-content-editable:empty {
+  color: #a9a9a9;
+}
+
+.ember-content-editable:empty:after {
+  content: "\0000a0";
+}

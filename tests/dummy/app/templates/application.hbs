@@ -1,0 +1,12 @@
+<h1>ember-content-editable</h1>
+
+<pre>
+  &#60;div &#123;&#123;content-editable value=this.value placeholder="enter something" onChange=(fn (mut this.value)) autofocus=true &#125;&#125;&#62;&#60;/div&#62;
+</pre>
+
+<div {{content-editable value=this.value placeholder="enter something" onChange=(fn (mut this.value)) autofocus=true}}></div>
+
+<p class="jsTest-textOutput info">
+  value:
+  <pre id="text-output">{{this.value}}</pre>
+</p>
