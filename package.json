@@ -1,5 +1,5 @@
 {
-  "name": "ember-content-editable",
+  "name": "ember-content-editable-modifier",
   "version": "1.0.0",
   "description": "An ember modifier that enables contenteditable fields",
   "keywords": [

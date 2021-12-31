@@ -6,8 +6,6 @@ export default class ContentEditableModifier extends Modifier {
   value = undefined;
 
   didInstall() {
-    this.element.setAttribute('contenteditable', 'true');
-
     if (this.args.named.placeholder) {
       this.element.setAttribute('placeholder', this.args.named.placeholder);
     }
@@ -24,6 +22,11 @@ export default class ContentEditableModifier extends Modifier {
     if (this.value != this.args.named.value) {
       this.value = this.args.named.value;
       this.element.innerText = this.value;
+    }
+    if (this.args.named.disabled && this.element.getAttribute('contenteditable')) {
+      this.element.removeAttribute('contenteditable');
+    } else if (!this.args.named.disabled && !this.element.getAttribute('contenteditable')) {
+      this.element.setAttribute('contenteditable', 'true');
     }
   }
 
