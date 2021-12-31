@@ -1,1 +1,1 @@
-export { default } from 'ember-content-editable/modifiers/content-editable';
+export { default } from 'ember-content-editable-modifier/modifiers/content-editable';
