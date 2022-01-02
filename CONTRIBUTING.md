@@ -3,7 +3,7 @@
 ## Installation
 
 * `git clone <repository-url>`
-* `cd ember-content-editable`
+* `cd ember-content-editable-modifier`
 * `npm install`
 
 ## Linting
