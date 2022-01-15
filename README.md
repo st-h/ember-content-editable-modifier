@@ -13,8 +13,8 @@ This addons allows you to add contenteditable functionality to dom elements by p
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.20 or above
-* Ember CLI v3.20 or above
+* Ember.js v3.24 or above
+* Ember CLI v3.24 or above
 * Node.js v12 or above
 
 If you need support for older ember versions, please check version 2.0.0-rc.0
