@@ -14,20 +14,33 @@ export default class ContentEditableModifier extends Modifier {
     this.element.classList.add('ember-content-editable');
     this.addEventListener();
 
+    this.updateValue();
+
     if (this.args.named.autofocus) {
       this.element.focus();
     }
   }
 
   didReceiveArguments() {
-    if (this.value != this.args.named.value) {
-      this.value = this.args.named.value;
-      this.element.innerText = this.value;
-    }
     if (this.args.named.disabled && this.element.getAttribute('contenteditable')) {
       this.element.removeAttribute('contenteditable');
     } else if (!this.args.named.disabled && !this.element.getAttribute('contenteditable')) {
       this.element.setAttribute('contenteditable', 'true');
+    }
+  }
+
+  didUpdateArguments() {
+    if (this.value != this.args.named.value) {
+      this.updateValue();
+    }
+  }
+
+  updateValue() {
+    this.value = this.args.named.value;
+    if (this.value) {
+      this.element.innerText = this.value;
+    } else {
+      this.element.innerText = '';
     }
   }
 
