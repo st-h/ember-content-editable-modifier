@@ -11,16 +11,16 @@ module('Integration | Modifier | content-editable', function (hooks) {
     await render(hbs`<div {{content-editable value=this.value}}></div>`);
 
     let editable = this.element.querySelector('.ember-content-editable');
-    assert.equal(editable.innerText, 'first value');
+    assert.strictEqual(editable.innerText, 'first value');
 
     this.set('value', 'second value');
-    assert.equal(editable.innerText, 'second value');
+    assert.strictEqual(editable.innerText, 'second value');
   });
 
   test('updating the dom, calls onChange', async function (assert) {
     assert.expect(1);
 
-    this.onChange = (value) => assert.equal(value, 'updated');
+    this.onChange = (value) => assert.strictEqual(value, 'updated');
 
     await render(hbs`<div {{content-editable onChange=this.onChange}}></div>`);
 

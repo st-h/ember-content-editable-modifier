@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Modifier from 'ember-modifier';
 import { action } from '@ember/object';
 
