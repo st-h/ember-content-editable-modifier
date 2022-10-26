@@ -1,5 +1,4 @@
-ember-content-editable
-==============================================================================
+# ember-content-editable-modifier
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/st-h/ember-content-editable.svg)](https://greenkeeper.io/)
 [![Latest NPM release][npm-badge]][npm-badge-url]
@@ -10,26 +9,23 @@ ember-content-editable
 
 This addons allows you to add contenteditable functionality to dom elements by providing an ember modifier.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v12 or above
+* Ember.js v3.28 or above
+* Ember CLI v3.28 or above
+* Node.js v14 or above
 
 If you need support for older ember versions, please check version 2.0.0-rc.0
  or 1.0.5
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-content-editable
 ```
 
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 Just apply the `content-editable` modifier and provide a `value` attribute and a `onChange` function in order to update the value. Ember does not allow for two way bindings, therefore you will need to take care of updating the value yourself.
 
@@ -57,14 +53,12 @@ Add the following css code to your app:
 }
 ```
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 Please send PRs. However, this addon aims to provide basic contenteditable functionality only, which can easily be extended by using custom components. Otherwise see the [Contributing](CONTRIBUTING.md) guide for details.
 
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
 
