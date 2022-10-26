@@ -1,42 +1,55 @@
 /* eslint-disable prettier/prettier */
 import Modifier from 'ember-modifier';
+import { registerDestructor } from '@ember/destroyable';
 import { action } from '@ember/object';
+
+function cleanup(instance) {
+  instance.element?.removeEventListener('input', instance.domUpdated);
+}
 
 export default class ContentEditableModifier extends Modifier {
 
+  didSetup = false;
+  element;
+
   value = undefined;
 
-  didInstall() {
-    if (this.args.named.placeholder) {
-      this.element.setAttribute('placeholder', this.args.named.placeholder);
+  constructor(owner, args) {
+    super(owner, args);
+    registerDestructor(this, cleanup);
+  }
+
+  modify(element, positional, named) {
+    this.onChange = named.onChange;
+
+    if (!this.didSetup) {
+      this.element = element;
+      if (named.placeholder) {
+        element.setAttribute('placeholder', named.placeholder);
+      }
+
+      element.classList.add('ember-content-editable');
+      element.addEventListener('input', this.domUpdated);
+
+      if (named.autofocus) {
+        element.focus();
+      }
+      this.didSetup = true;
     }
 
-    this.element.classList.add('ember-content-editable');
-    this.addEventListener();
+    if (this.value != named.value) {
+      this.updateValue(named.value);
+    }
 
-    this.updateValue();
-
-    if (this.args.named.autofocus) {
-      this.element.focus();
+    if (named.disabled && element.getAttribute('contenteditable')) {
+      element.removeAttribute('contenteditable');
+    } else if (!named.disabled && !element.getAttribute('contenteditable')) {
+      element.setAttribute('contenteditable', 'true');
     }
   }
 
-  didReceiveArguments() {
-    if (this.args.named.disabled && this.element.getAttribute('contenteditable')) {
-      this.element.removeAttribute('contenteditable');
-    } else if (!this.args.named.disabled && !this.element.getAttribute('contenteditable')) {
-      this.element.setAttribute('contenteditable', 'true');
-    }
-  }
-
-  didUpdateArguments() {
-    if (this.value != this.args.named.value) {
-      this.updateValue();
-    }
-  }
-
-  updateValue() {
-    this.value = this.args.named.value;
+  updateValue(value) {
+    this.value = value;
     if (this.value) {
       this.element.innerText = this.value;
     } else {
@@ -44,24 +57,12 @@ export default class ContentEditableModifier extends Modifier {
     }
   }
 
-  willDestroy() {
-    this.removeEventListener();
-  }
-
   @action
   domUpdated() {
     this.value = this.element.innerText;
 
-    if (this.args.named.onChange) {
-      this.args.named.onChange(this.value);
+    if (this.onChange) {
+      this.onChange(this.value);
     }
-  }
-
-  addEventListener() {
-    this.element.addEventListener('input', this.domUpdated);
-  }
-
-  removeEventListener() {
-    this.element.removeEventListener('input', this.domUpdated);
   }
 }
