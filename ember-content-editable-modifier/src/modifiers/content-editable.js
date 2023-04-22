@@ -2,6 +2,7 @@
 import Modifier from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
 import { action } from '@ember/object';
+import { schedule } from '@ember/runloop';
 
 function cleanup(instance) {
   instance.element?.removeEventListener('input', instance.domUpdated);
@@ -32,7 +33,11 @@ export default class ContentEditableModifier extends Modifier {
       element.addEventListener('input', this.domUpdated);
 
       if (named.autofocus) {
-        element.focus();
+        schedule('afterRender', element, function() {
+          // this will be executed in the 'afterRender' queue
+          console.log('scheduled on afterRender queue');
+          this.focus();
+        });
       }
       this.didSetup = true;
     }
