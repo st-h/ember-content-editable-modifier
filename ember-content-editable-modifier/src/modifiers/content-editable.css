@@ -3,7 +3,7 @@
   content: attr(placeholder);
 }
 
-.ember-content-editable {
+.ember-content-editable[contenteditable] {
   cursor: text;
   -webkit-user-modify: read-write-plaintext-only;
 }
