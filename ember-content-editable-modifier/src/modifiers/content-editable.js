@@ -1,3 +1,5 @@
+import './content-editable.css';
+
 /* eslint-disable prettier/prettier */
 import Modifier from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
@@ -25,13 +27,10 @@ export default class ContentEditableModifier extends Modifier {
 
     if (!this.didSetup) {
       this.element = element;
-      if (named.placeholder) {
-        element.setAttribute('placeholder', named.placeholder);
-      }
-
+      
       element.classList.add('ember-content-editable');
       element.addEventListener('input', this.domUpdated);
-
+      
       if (named.autofocus) {
         schedule('afterRender', element, function() {
           // this will be executed in the 'afterRender' queue
@@ -40,6 +39,10 @@ export default class ContentEditableModifier extends Modifier {
         });
       }
       this.didSetup = true;
+    }
+
+    if (named.placeholder) {
+      element.setAttribute('placeholder', named.placeholder);
     }
 
     if (this.value != named.value) {

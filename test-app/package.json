@@ -1,6 +1,6 @@
 {
   "name": "test-app",
-  "version": "2.0.1-rc.2",
+  "version": "2.0.1-rc.4",
   "description": "An ember modifier that enables contenteditable fields",
   "keywords": [
     "content-editable",
@@ -48,7 +48,7 @@
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
-    "ember-content-editable-modifier": "2.0.1-rc.2",
+    "ember-content-editable-modifier": "2.0.1-rc.4",
     "ember-load-initializers": "^2.1.2",
     "ember-page-title": "^7.0.0",
     "ember-qunit": "^7.0.0",
