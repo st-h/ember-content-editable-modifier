@@ -1,24 +1,21 @@
 {
-  "name": "ember-content-editable-modifier",
+  "name": "ember-content-editable-modifier-root",
   "version": "3.0.1",
   "private": true,
   "repository": "",
   "license": "MIT",
   "author": "",
-  "workspaces": [
-    "ember-content-editable-modifier",
-    "test-app"
-  ],
   "scripts": {
-    "build": "yarn workspace ember-content-editable-modifier run build",
-    "lint": "yarn workspaces run lint",
-    "lint:fix": "yarn workspaces run lint:fix",
-    "prepare": "yarn build",
+    "build": "pnpm --filter ember-content-editable-modifier run build",
+    "lint": "pnpm -r run lint",
+    "lint:fix": "pnpm -r run lint:fix",
+    "prepare": "pnpm build",
     "start": "concurrently 'npm:start:*' --restart-after 5000 --prefix-colors cyan,white,yellow",
-    "start:addon": "yarn workspace ember-content-editable-modifier run start",
-    "start:test-app": "yarn workspace test-app run start",
-    "test": "yarn workspaces run test"
+    "start:addon": "pnpm --filter ember-content-editable-modifier run start",
+    "start:test-app": "pnpm --filter test-app run start",
+    "test": "pnpm -r run test"
   },
+  "packageManager": "pnpm@10.29.2",
   "devDependencies": {
     "concurrently": "^8.2.0",
     "prettier": "^2.8.8"
