@@ -4,24 +4,19 @@
 [![Latest NPM release][npm-badge]][npm-badge-url]
 [![Code Climate][codeclimate-badge]][codeclimate-badge-url]
 [![Ember Observer Score][ember-observer-badge]][ember-observer-badge-url]
-[![Dependencies][dependencies-badge]][dependencies-badge-url]
-[![Dev Dependencies][devDependencies-badge]][devDependencies-badge-url]
 
 This addons allows you to add contenteditable functionality to dom elements by providing an ember modifier.
 
 ## Compatibility
 
-* Ember.js v4.4 or above
-* Ember CLI v4.4 or above
-* Node.js v14 or above
-
-If you need support for older ember versions, please check version 2.0.0-rc.0
- or 1.0.5
+* Ember.js v5.8 or above
+* Ember CLI v5.8 or above
+* Node.js v18 or above
 
 ## Installation
 
 ```
-ember install ember-content-editable
+ember install ember-content-editable-modifier
 ```
 
 
@@ -64,11 +59,7 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 [npm-badge]: https://img.shields.io/npm/v/ember-content-editable-modifier.svg
 [npm-badge-url]: https://www.npmjs.com/package/ember-content-editable-modifier
-<!-- [codeclimate-badge]: https://api.codeclimate.com/v1/badges/8688ab1cea89cb7cb918/maintainability -->
+[codeclimate-badge]: https://api.codeclimate.com/v1/badges/8688ab1cea89cb7cb918/maintainability
 [codeclimate-badge-url]: https://codeclimate.com/github/st-h/ember-content-editable-modifier/maintainability
 [ember-observer-badge]: http://emberobserver.com/badges/ember-content-editable-modifier.svg
 [ember-observer-badge-url]: http://emberobserver.com/addons/ember-content-editable-modifier
-[dependencies-badge]: https://img.shields.io/david/st-h/ember-content-editable-modifier.svg
-[dependencies-badge-url]: https://david-dm.org/st-h/ember-content-editable-modifier
-[devDependencies-badge]: https://img.shields.io/david/dev/st-h/ember-content-editable-modifier.svg
-[devDependencies-badge-url]: https://david-dm.org/st-h/ember-content-editable-modifier#info=devDependencies
