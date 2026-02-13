@@ -69,6 +69,13 @@ export default class ContentEditableModifier extends Modifier {
   domUpdated() {
     this.value = this.element.innerText;
 
+    // Browsers may leave behind <br> elements when all text is deleted,
+    // preventing the CSS :empty pseudo-class from matching for placeholder display
+    if (!this.value.trim()) {
+      this.element.innerHTML = '';
+      this.value = '';
+    }
+
     if (this.onChange) {
       this.onChange(this.value);
     }
